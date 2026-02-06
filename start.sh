@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Run migrations and start server
 echo "Running database migrations..."
