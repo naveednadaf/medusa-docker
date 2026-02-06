@@ -11,8 +11,11 @@ COPY .yarn/releases .yarn/releases
 # Install all dependencies using yarn
 RUN yarn install
 
-# Copy source code
+# Copy source code (excluding node_modules to prevent conflicts with the volume mount)
 COPY . .
+
+# Remove any potential local node_modules that might interfere
+RUN rm -rf node_modules
 
 # Make start.sh executable
 RUN chmod +x ./start.sh
