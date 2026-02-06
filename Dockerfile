@@ -21,4 +21,4 @@ RUN chmod +x ./start.sh || echo "start.sh may not be needed with direct CMD"
 EXPOSE 9000 5173
 
 # Define the startup command directly
-CMD ["/bin/sh", "-c", "yarn install --immutable && yarn medusa db:migrate && (yarn seed || echo 'Seeding failed, continuing...') && yarn dev"]
+CMD ["/bin/sh", "-c", "yarn medusa db:migrate && (yarn seed || echo 'Seeding failed, continuing...') && yarn dev"]
