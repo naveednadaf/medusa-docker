@@ -21,4 +21,4 @@ RUN chmod +x ./start.sh
 EXPOSE 9000 5173
 
 # Start with migrations and then the development server
-CMD ["./start.sh"]
+CMD ["/bin/sh", "./start.sh"]
