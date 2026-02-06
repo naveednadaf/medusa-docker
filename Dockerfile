@@ -17,6 +17,9 @@ COPY . .
 # Make start.sh executable
 RUN chmod +x ./start.sh
 
+# Verify start.sh exists
+RUN ls -la ./start.sh
+
 # Expose the port Medusa runs on
 EXPOSE 9000 5173
 
