@@ -45,8 +45,15 @@ services:
     env_file:
       - .env
     volumes:
-      - ./:/server
-      - node_modules:/server/node_modules  # Named volume to preserve container's node_modules
+      - ./src:/server/src
+      - ./package.json:/server/package.json
+      - ./yarn.lock:/server/yarn.lock
+      - ./.yarnrc.yml:/server/.yarnrc.yml
+      - ./.env:/server/.env
+      - ./medusa-config.ts:/server/medusa-config.ts
+      - ./tsconfig.json:/server/tsconfig.json
+      - ./start.sh:/server/start.sh  # Still include if needed
+      - node_modules:/server/node_modules
     networks:
       - medusa_network
 

@@ -15,10 +15,10 @@ RUN yarn install
 COPY . .
 
 # Make start.sh executable
-RUN chmod +x ./start.sh || echo "start.sh may not be needed with direct CMD"
+RUN chmod +x ./start.sh
 
 # Expose the port Medusa runs on
 EXPOSE 9000 5173
 
-# Define the startup command directly
-CMD ["/bin/sh", "-c", "yarn medusa db:migrate && (yarn seed || echo 'Seeding failed, continuing...') && yarn dev"]
+# Start with migrations and then the development server
+CMD ["/bin/sh", "./start.sh"]
