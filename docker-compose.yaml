@@ -45,13 +45,14 @@ services:
     env_file:
       - .env
     volumes:
-      - .:/server
-      - /server/node_modules
+      - ./:/server
+      - node_modules:/server/node_modules  # Named volume to preserve container's node_modules
     networks:
       - medusa_network
 
 volumes:
   postgres_data:
+  node_modules:
 
 networks:
   medusa_network:
